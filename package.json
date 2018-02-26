@@ -1,0 +1,9 @@
+{
+  "name": "intersection-observer-api-primer",
+  "version": "1.0.0",
+  "description":
+    "A tutorial on using the Intersection Observer API for lazy-loading and image transitions",
+  "main": "index.html",
+  "author": "Conrad Knapp",
+  "license": "MIT"
+}
