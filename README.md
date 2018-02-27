@@ -1,4 +1,4 @@
-# Basics of Using the Intersecton Observer API
+# Basics of Using the Intersection Observer API
 
 ## Browser Support
 
@@ -113,7 +113,7 @@ function checkIfImgVisible(images) {
 }
 ```
 
-Then we pass it in:
+Then we pass this function into the Intersection Observer function:
 
 ```js
 function createObserverAndObserve() {
