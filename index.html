@@ -107,10 +107,10 @@
     const unloadedImages = document.querySelectorAll('img[data-src]');
 
     function createObserverAndObserve() {
-      const Observer = new IntersectionObserver(checkIfImgVisible);
+      const IO = new IntersectionObserver(checkIfImgVisible);
 
       unloadedImages.forEach(el => {
-        Observer.observe(el);
+        IO.observe(el);
       });
     }
 
