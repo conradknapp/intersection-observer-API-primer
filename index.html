@@ -21,6 +21,18 @@
       height: 40vh;
     }
 
+    .-js-fade-in {
+      animation-name: fadeIn;
+      animation-duration: 2s;
+      animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     h1 {
       color: rgb(0, 128, 100);
       letter-spacing: 2px;
@@ -60,7 +72,7 @@
 
 <body>
   <h1>Lorem ipsum dolor sit amet.</h1>
-  <img data-src="./images/nature-1.jpeg" alt="Placid Lake">
+  <img data-src="./images/nature-1.jpg" alt="Placid Lake">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est numquam vel quisquam animi, laudantium quia! Iste delectus
     voluptatem vel quia quidem velit cumque at vero ut sed recusandae dolore quasi iusto ex assumenda cum veritatis, voluptates
     distinctio nulla doloremque eligendi maxime unde labore ipsum! Beatae voluptates tempore quasi corrupti itaque nesciunt
@@ -69,7 +81,7 @@
     eligendi praesentium ipsum ratione aut ducimus inventore. Fugiat, dolorum optio neque perspiciatis veritatis necessitatibus
     hic quae consectetur nihil.</p>
   <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed!</h1>
-  <img data-src="./images/nature-2.jpeg" alt="Beautiful Green Forest">
+  <img data-src="./images/nature-2.jpg" alt="Beautiful Green Forest">
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur recusandae culpa quo nihil deserunt nulla maiores
     quos temporibus rerum velit enim laboriosam ipsam vel, blanditiis delectus beatae, et soluta aliquid vero. Asperiores
     quod sequi, voluptatum alias quas earum sit porro ut minima doloribus, id hic deleniti dolorem. Qui voluptate maiores
@@ -78,14 +90,14 @@
     esse.
   </p>
   <h1>Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
-  <img data-src="./images/nature-3.jpeg" alt="Fog-covered Hill">
+  <img data-src="./images/nature-3.jpg" alt="Fog-covered Hill">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, harum rem voluptas ratione autem cum magnam! Natus voluptas
     nihil id blanditiis minima aliquid vel dolorem quia accusamus, qui repudiandae temporibus voluptatem eum? Illum unde
     molestias culpa soluta voluptatibus cumque odit accusamus iusto, blanditiis hic. Ipsum ullam nostrum harum amet ducimus
     culpa dolores tempore temporibus optio eos quae asperiores exercitationem facere facilis, perferendis architecto officiis
     quos error commodi dolorum qui nulla consectetur in minima. Cum fugiat reiciendis alias. Minima rem quia non veniam?</p>
   <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, natus?</h1>
-  <img data-src="./images/nature-4.jpeg" alt="Sun Setting in the Desert">
+  <img data-src="./images/nature-4.jpg" alt="Sun Setting in the Desert">
   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, ut deserunt modi, at laudantium fugiat incidunt, alias
     earum harum tempora repellendus unde a atque ipsum voluptate praesentium eaque? Incidunt omnis quam enim vitae! Rem enim
     facilis reiciendis fugiat odio labore minima aspernatur molestiae eaque recusandae voluptates deserunt aliquam perspiciatis,
@@ -118,12 +130,18 @@
       images.forEach(image => {
         if (image.intersectionRatio > 0) {
           convertDataSrcToSrc(image.target);
+          addTransitionClass(image.target);
         }
       })
     }
 
     function convertDataSrcToSrc(image) {
       image.src = image.getAttribute('data-src');
+    }
+
+    function addTransitionClass(image) {
+      const imageFadeClass = "-js-fade-in";
+      image.classList.add(imageFadeClass);
     }
 
     createObserverAndObserve();
