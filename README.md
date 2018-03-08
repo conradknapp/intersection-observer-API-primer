@@ -161,6 +161,6 @@ Included in the script is some functionality that provides timing data for each 
 
 As of the current date (03-08-18), this project doesn't do any image preloading. The downside of this is that during the transition (upon the image being observed and consequently loaded), it is quite possible that the image will be partially rendered to the screen as the transition takes place, causing a somewhat weird visual where the image loading is out of sync with the fading-in effect. If there was the possibility of serving this project from a server (rather than just locally), where we could set up the proper headers so that the browser is able to cache the images for future visits, it would be possible to guarantee that the image was there and such an event wouldn't happen.
 
-## An Aside about this Project
+## Resources Used For This Project
 
-This project uses what were (originally) very large .jpeg files from Pexels and were optimized using the compression tool ImageOptim. The images could have been reduced in size even further, however, for this project I wanted somewhat larger files so the process of loading the image was visible when hitting the breakpoint of our Intersection Observer.
+This project uses what were (originally) very large .jpeg files from [Pexels](https://www.pexels.com/) and were optimized using the compression tool [ImageOptim](https://imageoptim.com/mac). The images were then resized using the [Reduce Images](https://www.reduceimages.com) website.
