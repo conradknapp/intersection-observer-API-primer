@@ -116,8 +116,9 @@
     corporis, praesentium ipsa labore aspernatur, nam qui iusto veniam deserunt molestiae asperiores. Incidunt omnis necessitatibus
     aliquid, alias quas temporibus asperiores ipsum! Quia necessitatibus amet quam cum omnis alias numquam repudiandae laboriosam?</p>
   <script>
+  window.onload = (() => {
     const unloadedImages = document.querySelectorAll('img[data-src]');
-
+    
     function createObserverAndObserve() {
       const IO = new IntersectionObserver(checkIfImgVisible);
 
@@ -131,8 +132,19 @@
         if (image.intersectionRatio > 0) {
           convertDataSrcToSrc(image.target);
           addTransitionClass(image.target);
+          getImgLoadingData();
         }
       })
+    }
+
+    function getImgLoadingData() {
+      const resource = performance.getEntriesByType('resource').pop();
+
+      if (resource) {
+        const imgName = resource.name.split('/').slice(-1)[0];
+        const timeImgWasLoaded = Math.round(resource.responseEnd - resource.startTime); 
+        console.log(`${imgName} loaded in ${timeImgWasLoaded}ms`); 
+      }
     }
 
     function convertDataSrcToSrc(image) {
@@ -145,6 +157,7 @@
     }
 
     createObserverAndObserve();
+  })();
   </script>
 </body>
 

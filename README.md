@@ -153,6 +153,14 @@ Then simply run:
 live-server
 ```
 
+## Bonus Content
+
+Included in the script is some functionality that provides timing data for each image. If you open your Dev Tools console, there should be output that indicates how long each image took to be loaded (beginning once that image was observed). This uses the information provided by the [Resource Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API) on the window object.
+
+## Project Shortcomings
+
+As of the current date (03-08-18), this project doesn't do any image preloading. The downside of this is that during the transition (upon the image being observed and consequently loaded), it is quite possible that the image will be partially rendered to the screen as the transition takes place, causing a somewhat weird visual where the image loading is out of sync with the fading-in effect. If there was the possibility of serving this project from a server (rather than just locally), where we could set up the proper headers so that the browser is able to cache the images for future visits, it would be possible to guarantee that the image was there and such an event wouldn't happen.
+
 ## An Aside about this Project
 
 This project uses what were (originally) very large .jpeg files from Pexels and were optimized using the compression tool ImageOptim. The images could have been reduced in size even further, however, for this project I wanted somewhat larger files so the process of loading the image was visible when hitting the breakpoint of our Intersection Observer.
